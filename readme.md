@@ -3,9 +3,15 @@
 [Mehr dazu...](https://devpost.com/software/algorithm-based-employee-exchange-platform)
 
 ## Prerequisites:
-Prerequisites:
-* python 3.8
-    * with pip and virtualenv
+* running the code:
+  * [python 3.8](https://www.python.org/doc/)
+  * [pip](https://pip.pypa.io/en/stable/)
+  * [virtualenv](https://virtualenv.pypa.io/en/latest/)
+  * Other requirments can be found in the [requirments.txt](https://github.com/BeeToBeeOrg/Bee2Bee_backend/blob/master/requirements.txt)
+  
+* testing the API (example):
+  * [HTTPie](https://httpie.org/)    
+
     
 ## Setup (for testing)
 * cd $repo
