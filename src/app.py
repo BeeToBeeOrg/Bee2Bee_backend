@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 from models import db
 from api.routes.company import company_api
 from api.routes.user import user_api
@@ -39,7 +39,7 @@ def setup_app(app):
     app.register_blueprint(user_api)
     @app.route('/')
     def index():
-        return jsonify(status=200, message='OK')
+        return render_template("sites/home.html")
 
     @app.route('/healthcheck')
     def healthcheck():
