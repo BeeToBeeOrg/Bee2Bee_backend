@@ -31,7 +31,7 @@
 - [@karpatenhuhn](https://github.com/karpatenhuhn)
 - [@PhilPhil](https://github.com/Philhil)
 - [@holledauer](https://github.com/holledauer)
-- [@vinzdauer](https://github.com/vinzBad)
+- [@vinzBad](https://github.com/vinzBad)
 - [@kgass](https://github.com/kgass)
 - [@sferenz](https://github.com/sferenz)
 
