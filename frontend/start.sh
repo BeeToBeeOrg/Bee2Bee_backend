@@ -1,3 +1,3 @@
 #!/bin/bash
-npm run json:server &
+npm run json-server &
 node app.js 

@@ -1,23 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;1,500&display=swap");
-* {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html, body {
-  font-family: 'Montserrat', sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-nav {
-  height: 80px;
-  width: 100vw;
-  background: #fff;
-  position: absolute;
-  z-index: 3;
+img {
+  visibility: hidden;
 }
 
 .b2b-login-wrapper {
@@ -45,34 +27,29 @@ nav {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: end;
-  height: 100vh;
 }
 
-.b2b-login-wrapper .b2b-login-scale .b2b-login-bg {
-  height: 100vh;
-  width: 50vw;
-}
-
-.b2b-login-wrapper .b2b-login-scale .b2b-login-left {
-  background: url("../images/2.jpg") no-repeat center center;
+.b2b-login-wrapper .b2b-login-scale .b2b-login-left-bg {
+  background: url(/images/1.jpg) no-repeat;
   background-size: cover;
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
 }
 
-.b2b-login-wrapper .b2b-login-scale .b2b-login-left:hover {
+.b2b-login-wrapper .b2b-login-scale .b2b-login-left-bg:hover {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
 }
 
-.b2b-login-wrapper .b2b-login-scale .b2b-login-right {
-  background-image: url(http://www.birds.com/wp-content/uploads/home/bird4.jpg) no-repeat center center;
+.b2b-login-wrapper .b2b-login-scale .b2b-login-right-bg {
+  background: url(/images/2.jpg) no-repeat;
+  background-position: center;
   background-size: cover;
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
 }
 
-.b2b-login-wrapper .b2b-login-scale .b2b-login-right:hover {
+.b2b-login-wrapper .b2b-login-scale .b2b-login-right-bg:hover {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
 }
@@ -100,9 +77,9 @@ nav {
   background-color: #fff;
   border: none;
   outline: none;
-  z-index: 2;
+  z-index: 3;
   position: relative;
-  bottom: 200px;
+  bottom: 300px;
 }
 
 .b2b-login-wrapper .b2b-login-scale button i {
