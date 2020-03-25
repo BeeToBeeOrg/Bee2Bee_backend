@@ -4,7 +4,8 @@
   "description": "The web frontend for bee2bee",
   "main": "app.js",
   "scripts": {
-    "json:server": "json-server --watch db.json"
+    "json-server": "json-server --watch db.json",
+    "start": "npx nodemon app.js"
   },
   "author": "",
   "license": "ISC",

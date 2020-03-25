@@ -1,22 +1,116 @@
-.b2b-login {
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;1,500&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  height: 80px;
+  width: 100vw;
+  background: #fff;
+  position: absolute;
+  z-index: 3;
+}
+
+.b2b-login-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
+}
+
+.b2b-login-wrapper .b2b-login-scale {
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  height: 100vh;
+}
+
+.b2b-login-wrapper .b2b-login-scale .b2b-login-bg {
+  height: 100vh;
   width: 50vw;
 }
 
-.b2b-login h2 {
+.b2b-login-wrapper .b2b-login-scale .b2b-login-left {
+  background: url("../images/2.jpg") no-repeat center center;
+  background-size: cover;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.b2b-login-wrapper .b2b-login-scale .b2b-login-left:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.b2b-login-wrapper .b2b-login-scale .b2b-login-right {
+  background-image: url(http://www.birds.com/wp-content/uploads/home/bird4.jpg) no-repeat center center;
+  background-size: cover;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.b2b-login-wrapper .b2b-login-scale .b2b-login-right:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.b2b-login-wrapper .b2b-login-scale h2 {
+  font-weight: normal;
+  z-index: 2;
+  position: relative;
+  bottom: 300px;
+  color: #fff;
+  margin-left: 20px;
+}
+
+.b2b-login-wrapper .b2b-login-scale h2 span {
   font-weight: bold;
 }
 
-.b2b-login span {
-  font-weight: bold;
+.b2b-login-wrapper .b2b-login-scale button {
+  margin: 20px;
+  border-radius: 20px;
+  height: 40px;
+  width: 350px;
+  color: deepskyblue;
+  font-size: 15px;
+  background-color: #fff;
+  border: none;
+  outline: none;
+  z-index: 2;
+  position: relative;
+  bottom: 200px;
 }
 
-.b2b-login-left {
-  background-image: url(images/1.jpg) no-repeat center center fixed;
-  background-size: cover;
+.b2b-login-wrapper .b2b-login-scale button i {
+  margin-left: 10px;
 }
 
-.b2b-login-right {
-  background-image: url(images/1.jpg) no-repeat center center fixed;
-  background-size: cover;
+.b2b-login-wrapper .b2b-login-scale button:hover {
+  background-color: deepskyblue;
+  color: white !important;
 }
 /*# sourceMappingURL=style.css.map */
