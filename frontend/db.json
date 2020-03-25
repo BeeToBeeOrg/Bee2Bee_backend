@@ -1,0 +1,165 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "firstName": "John",
+            "lastName": "Wick",
+            "skills": [
+                "driver license",
+                "bicycle",
+                "fit"
+            ],
+            "residence": {
+                "city": "Dresden",
+                "street": "Alaunstr 1",
+                "district": "Neustadt",
+                "post_code": "01099"
+            },
+            "income": "3500",
+            "group": [
+                "Tony Stark",
+                "Steve Rodgers"
+            ]
+        },
+        {
+            "id": 2,
+            "firstName": "Leonardo",
+            "lastName": "DiCaprio",
+            "skills": [
+                "driver license",
+                "bicycle",
+                "fit"
+            ],
+            "residence": {
+                "city": "Los Angeles",
+                "street": "Hollywood 1",
+                "district": "Hollywood",
+                "post_code": "11111"
+            },
+            "income": "100000",
+            "group": [
+                "Quentin Terrentino"
+            ]
+        },
+        {
+            "id": 3,
+            "firstName": "Elon",
+            "lastName": "Musk",
+            "skills": [
+                "driver license",
+                "bicycle",
+                "fit"
+            ],
+            "residence": {
+                "city": "Dresden",
+                "street": "Alaunstr 1",
+                "district": "Neustadt",
+                "post_code": "01099"
+            },
+            "income": "2500",
+            "group": false
+        },
+        {
+            "id": 4,
+            "firstName": "Sir Isaac",
+            "lastName": "Newton",
+            "skills": [
+                "driver license",
+                "bicycle",
+                "fit"
+            ],
+            "residence": {
+                "city": "Köln",
+                "street": "Strasse 1",
+                "district": "Keine Ahnung",
+                "post_code": "01099"
+            },
+            "income": "3000",
+            "group": [
+                "Galileo Galilei",
+                "James Hubble",
+                "Steven Hawking"
+            ]
+        }
+    ],
+    "companies": [
+        {
+            "id": "1",
+            "name": "Bee2Bee",
+            "location": [
+                "Dresden",
+                "Köln",
+                "München"
+            ],
+            "job_posts": [
+                {
+                    "jobId": "1",
+                    "name": "developer",
+                    "description": "We are looking for developers in Dresden, Munich and Cologne",
+                    "strong_requirements": [
+                        "driver license",
+                        "fit",
+                        "bike"
+                    ],
+                    "loose_requirements": [
+                        "speaks German",
+                        "< 5km"
+                    ],
+                    "open_jobs": 5
+                },
+                {
+                    "jobId": "2",
+                    "name": "Warehouse worker",
+                    "description": "We are looking for a warehouse worker",
+                    "strong_requirements": [
+                        "stacker license",
+                        "fit"
+                    ],
+                    "loose_requirements": [
+                        "speaks German",
+                        "lives < 5km away"
+                    ],
+                    "open_jobs": 10
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "name": "Apple",
+            "location": [
+                "Cupertino"
+            ],
+            "job_posts": [
+                {
+                    "jobId": "1",
+                    "name": "developer",
+                    "description": "We are looking for developers in Cupertino",
+                    "strong_requirements": [
+                        "driver license",
+                        "fit",
+                        "bike"
+                    ],
+                    "loose_requirements": [
+                        "speaks German",
+                        "< 5km"
+                    ],
+                    "open_jobs": 2
+                },
+                {
+                    "jobId": "2",
+                    "name": "Warehouse worker",
+                    "description": "We are looking for a warehouse worker",
+                    "strong_requirements": [
+                        "stacker license",
+                        "fit"
+                    ],
+                    "loose_requirements": [
+                        "speaks German",
+                        "lives < 5km away"
+                    ],
+                    "open_jobs": 10
+                }
+            ]
+        }
+    ]
+}

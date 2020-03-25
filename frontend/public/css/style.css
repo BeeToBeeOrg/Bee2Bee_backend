@@ -1,0 +1,22 @@
+.b2b-login {
+  width: 50vw;
+}
+
+.b2b-login h2 {
+  font-weight: bold;
+}
+
+.b2b-login span {
+  font-weight: bold;
+}
+
+.b2b-login-left {
+  background-image: url(images/1.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+.b2b-login-right {
+  background-image: url(images/1.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+/*# sourceMappingURL=style.css.map */
