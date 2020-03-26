@@ -259,5 +259,22 @@
       "id": "m0z47p2"
     }
     
+  ],
+  "tags":[
+    {"skill":"Auto fahren"},{"skill":"Teilzeit"},{"skill":"Vollzeit"},{"skill":"Körperliche Arbeit"},{"skill":"Securitytätigkeit"},{"skill":"handwerklich begabt"}
+  ],
+  "resources":[
+    {
+      "resource":"Auto"
+    }, 
+    {
+      "resource": "Auto"
+    },
+    {
+      "resource": "Fahrrad"
+    },
+    {
+      "resource": "Ausrüstung"
+    }
   ]
 }

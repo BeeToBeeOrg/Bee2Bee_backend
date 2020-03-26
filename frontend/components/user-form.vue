@@ -113,7 +113,6 @@ export default {
   name:"profile",
   data() {
     return {
-
       user: {
         firstName: "",
         lastName: "",

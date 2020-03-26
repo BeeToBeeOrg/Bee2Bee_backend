@@ -4,7 +4,11 @@ export const state = () => ({
         profile: true,
         company: false,
         team: false,
-    }
+    },
+    tags:[
+    ]
+
+    
 })
 
 export const mutations = {
@@ -13,6 +17,16 @@ export const mutations = {
     },
     update_position(state, payload){
         this.state.positions = payload.positions
+    },
+    add_tag(state, payload){
+        console.log("tag pushed: ",payload);
+        // TODO: add to array 
+        // this.state.tags.push({
+        //     "skill":payload           
+        // })
+    },
+    delete_tag(state,payload){
+        delete this.state.tags[payload]
     }
 }
 
