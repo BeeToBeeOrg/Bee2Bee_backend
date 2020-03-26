@@ -28,7 +28,11 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/vuelidate.js'
+    '@/plugins/vuelidate.js',
+    {
+      src: '@/plugins/amplify.js',
+      ssr: false
+    }
   ],
   /*
   ** Nuxt.js dev-modules
