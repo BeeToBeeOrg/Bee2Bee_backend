@@ -145,7 +145,7 @@ nav {
 
         .b2b-login-scale {
             width: 100vw!important;
-            height: 70vh!important;
+            height: 80vh!important;
             position: relative!important;
             overflow: visible!important;
             text-align: center;
@@ -158,7 +158,7 @@ nav {
                 bottom: 0;
             }
 
-            .b2b-login-left-bg:hover {
+            .b2b-login-left-bg:hover, .b2b-login-right-bg:hover {
                 transform: none!important;
             }
 

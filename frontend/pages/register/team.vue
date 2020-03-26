@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <Sidebar class="sidebar" />
+    <Sidebar />
     <Company />
   </div>
 </template>
@@ -18,9 +18,5 @@ export default {
 </script>
 
 <style>
-@media only screen and (max-width: 1115px) {
-  .sidebar {
-    display: none;
-  }
-}
+
 </style>

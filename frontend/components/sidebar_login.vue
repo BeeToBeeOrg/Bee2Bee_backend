@@ -4,33 +4,43 @@
     <h3>In nur drei Schritten geeignete Personalpartner finden</h3>
 
     <div class="b2b-sidebar-element-wrapper">
-      <div class="b2b-sidebar-element active">
+      <div class="b2b-sidebar-element" v-bind:class="{active:this.$store.state.positions.profile}"> 
         <div class="b2b-circle">
           <span>1</span>
         </div>
         <p>Deine Profildaten</p>
       </div>
 
-      <div class="b2b-sidebar-element">
+      <div class="b2b-sidebar-element" v-bind:class="{active:this.$store.state.positions.company}">
         <div class="b2b-circle">
           <span>2</span>
         </div>
         <p>Zum Unternehmen</p>
       </div>
 
-      <div class="b2b-sidebar-element">
+      <div class="b2b-sidebar-element" v-bind:class="{active:this.$store.state.positions.team}">
         <div class="b2b-circle">
           <span>3</span>
         </div>
         <p>Mein Team</p>
-      </div>
-    </div>
+      </div> 
+   </div> 
   </aside>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  name: "sidebarLogin"
+  name: "sidebarLogin",
+  computed: {
+    ...mapGetters(['get_sidebar_position'])
+  },
+  watch: {
+    positions: function(val){
+      console.log("val: ",val);
+    }
+  }
 };
 </script>
 
@@ -40,6 +50,9 @@ aside {
   height: 100vh;
   background: deepskyblue;
   padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
 
   span {
     width: 100%;

@@ -50,4 +50,10 @@ nav {
     }
   }
 }
+
+@media only screen and (max-width: 786px) {
+  nav {
+    background: none;
+  }
+}
 </style>

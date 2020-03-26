@@ -29,10 +29,10 @@ export default {
   */
   plugins: [
     '@/plugins/vuelidate.js',
-    {
-      src: '@/plugins/amplify.js',
-      ssr: false
-    }
+    // {
+    //   src: '@/plugins/amplify.js',
+    //   ssr: false
+    // }
   ],
   /*
   ** Nuxt.js dev-modules
