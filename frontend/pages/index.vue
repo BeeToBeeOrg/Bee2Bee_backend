@@ -61,8 +61,6 @@ nav {
 
     .b2b-login-scale {
         overflow: hidden;
-        display: flex;
-        flex-direction: column;
         position: fixed;
         width: 50vw;
         height: 100vh;
@@ -139,10 +137,11 @@ nav {
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
     .b2b-login-wrapper{
         flex-direction: column!important;
         width: 100vw!important;
+        overflow: hidden;
 
         .b2b-login-scale {
             width: 100vw!important;
@@ -159,14 +158,19 @@ nav {
                 bottom: 0;
             }
 
-            .b2b-login-
-
             .b2b-login-left-bg:hover {
                 transform: none!important;
             }
 
+            h2 {
+              margin: 0;
+              bottom: 240px;
+            }
+
             button {
-                margin: 0 0 0 5vw!important;
+                margin: 0;
+                width: 80%;
+                bottom: 200px;
             }
         }
     }
