@@ -1,20 +1,22 @@
-# Bee2Bee web frontend
-**[#WirVsVirus](https://twitter.com/hashtag/wirvsvirus)**
-[Mehr dazu...](https://devpost.com/software/algorithm-based-employee-exchange-platform)
+# bee2bee_frontend
 
-## Prerequisites:
-https://nodejs.org/en/
+> The web frontend for the bee2bee platform
 
-## Fotos
-Photo by Jony Ariadi on Unsplash
-Photo by Drew Graham on Unsplash
+## Build Setup
 
-## Setup (for testing)
-* cd frontend
-* npm install
-* ./start.sh
-## Contributors ❤️
-- [@johann-su](https://github.com/johann-su)
-- [@HannHank](https://github.com/HannHank)
+```bash
+# install dependencies
+$ npm install
 
+# serve with hot reload at localhost:3000
+$ npm run dev
 
+# build for production and launch server
+$ npm run build
+$ npm run start
+
+# generate static project
+$ npm run generate
+```
+
+For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).

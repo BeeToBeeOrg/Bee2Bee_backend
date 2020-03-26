@@ -1,0 +1,174 @@
+<template>
+  <div class="container">
+     <Navbar :auth="auth"></Navbar>
+
+    <div class="b2b-login-wrapper">
+        <div class="b2b-login-scale">
+            <div class="b2b-login-left-bg"></div>
+            <h2>Ich <span>biete</span> <br>
+            Mitarbeiter</h2>
+            <button @click="user_register" id="biete" class="hover-button">
+              Kostenlos Anmelden
+            </button>
+        </div>
+
+        <div class="b2b-login-scale">
+            <div class="b2b-login-right-bg"></div>
+            <h2>Ich <span>suche</span> <br>
+            Mitarbeiter</h2>
+            <button v-on:click="company_register" id="suche" class="hover-button">
+                Kostenlos Anmelden
+            </button>
+        </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import Navbar from '@/components/navbar.vue'
+
+export default {
+  data() {
+    return {
+      auth: true
+    }
+  },
+  methods:{
+    user_register: function(){
+      this.$router.push('/register/user')
+    },
+    company_register:function(){
+      this.$router.push('/register/company')
+    }
+  },
+  components: {
+    Navbar
+  },
+}
+</script>
+
+<style lang="scss">
+nav {
+  position: absolute;
+  background: #fff;
+  z-index: 3;
+}
+
+.b2b-login-wrapper {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+
+    .b2b-login-scale {
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        width: 50vw;
+        height: 100vh;
+
+        &:nth-of-type(even) {
+            right: 0;
+        }
+
+        &:nth-of-type(odd) {
+          left: 0;
+        }
+
+        .b2b-login-left-bg {
+          background: url(/images/1.jpg) no-repeat center center;
+          background-size: cover;
+          transition: all 1s ease;
+          height: 100%;
+
+          &:hover {
+            transform: scale(1.2);
+          }
+        }
+
+        .b2b-login-right-bg {
+          background: url(/images/2.jpg) no-repeat center center;
+          background-position: center;
+          background-size: cover;
+          transition: all 1s ease;
+          height: 100%;
+
+          &:hover {
+            transform: scale(1.2);
+          }
+        }
+
+        h2 {
+            font-weight: normal;
+            font-size: 40px;
+            z-index: 2;
+            position: relative;
+            bottom: 300px;
+            color: #fff;
+            margin-left: 50px;
+
+            span {
+                font-weight: bold;
+            }
+        }
+
+        button {
+            margin: 20px 20px 20px 50px;
+            padding: 10px;
+            width: 350px;
+            border-radius: 40px;
+            color: deepskyblue;
+            font-size: 20px;
+            background-color: #fff;
+            border: none;
+            outline: none;
+            z-index: 3;
+            position: relative;
+            bottom: 250px;
+
+
+            i {
+                margin-left: 10px;
+            }
+        }
+
+        button:hover {
+            background-color: deepskyblue;
+            color:white !important;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .b2b-login-wrapper{
+        flex-direction: column!important;
+        width: 100vw!important;
+
+        .b2b-login-scale {
+            width: 100vw!important;
+            height: 70vh!important;
+            position: relative!important;
+            overflow: visible!important;
+            text-align: center;
+
+            &:nth-of-type(even) {
+                top: 0;
+            }
+
+            &:nth-of-type(odd) {
+                bottom: 0;
+            }
+
+            .b2b-login-
+
+            .b2b-login-left-bg:hover {
+                transform: none!important;
+            }
+
+            button {
+                margin: 0 0 0 5vw!important;
+            }
+        }
+    }
+}
+</style>

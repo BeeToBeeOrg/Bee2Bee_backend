@@ -102,6 +102,12 @@
       "income": "2.300",
       "group": false,
       "id": 7
+    },
+    {
+      "firstName": "Johann",
+      "lastName": "Süß",
+      "email": "123456",
+      "id": 8
     }
   ],
   "companies": [
