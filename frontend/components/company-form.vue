@@ -104,7 +104,9 @@ export default {
       if (this.$v.$invalid) {
         return;
       }
-      this.$store.dispatch("add_company", this.user);
+      this.$store.commit("register_company_state",this.user)
+      this.$router.push("/register/team")
+      // this.$store.dispatch("add_company", this.user); // TODO: save it after validate.vue
     }
   },
   created() {

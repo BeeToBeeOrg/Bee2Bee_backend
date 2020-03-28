@@ -1,7 +1,5 @@
 <template>
   <div class="container">
-     <Navbar :auth="auth"></Navbar>
-
     <div class="b2b-login-wrapper">
         <div class="b2b-login-scale">
             <div class="b2b-login-left-bg"></div>
@@ -25,12 +23,14 @@
 </template>
 
 <script>
-import Navbar from '@/components/navbar.vue'
-
 export default {
-  data() {
+  head () {
     return {
-      auth: true
+      title: 'Willkommen bei Bee2Bee',
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        { hid: 'description', name: 'description', content: 'Wir bieten eine Plattform für kleine / mittelständige Unternehmen Mittarbeier vor der Kurzarbeit zu bewahren. Unternehmen können Mitarbeiter an andrere zum gleichen Lohn ausleihen. Eventuelle Unterschiede zahlt das Arbeitsamt.' }
+      ]
     }
   },
   methods:{
@@ -40,10 +40,7 @@ export default {
     company_register:function(){
       this.$router.push('/register/company')
     }
-  },
-  components: {
-    Navbar
-  },
+  }
 }
 </script>
 

@@ -1,11 +1,14 @@
 <template>
   <div class="b2b-container">
     <nav>
-      <span>
+      <!-- <span>
         Logo
-      </span>
-      <button v-if="auth">
+      </span> -->
+      <button v-if="!isAuthenticated" @click="$router.push('/login')">
         Login
+      </button>
+      <button v-else @click="logout">
+        Logout
       </button>
     </nav>
   </div>
@@ -16,7 +19,30 @@ export default {
   name: 'Navbar',
   props:{
     auth:Boolean
-  }
+  },
+  data(){
+    return{
+      "login":false,
+      lol:false
+      // isAuthenticated: false
+    }
+  },
+  methods:{
+    print:function(){
+      console.log(this.isAuthenticated);
+    },
+    logout:function(){
+      this.$store.dispatch("auth/logout")
+      this.$router.push("/")
+    }
+  },
+ computed:{
+   isAuthenticated() {
+     console.log(this.$store.state.auth.isAuthenticated);
+      return this.$store.state.auth.isAuthenticated;
+   }
+ },
+  
 }
 </script>
 

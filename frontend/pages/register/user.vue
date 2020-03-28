@@ -12,12 +12,22 @@ import profile from "@/components/user-form.vue"
 // import Checkmark from '@/components/checkmark.vue'
 
 export default {
+  head () {
+    return {
+      title: 'Register - User',
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        { hid: 'description', name: 'description', content: '' }
+      ]
+    }
+  },
+  layout: 'register',
   components: {
     sidebarLogin,
     profile,
     // Checkmark
   }
-};
+}
 </script>
 
 <style scoped lang="scss">

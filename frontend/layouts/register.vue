@@ -1,20 +1,12 @@
 <template>
-  <div>
-    <Navbar></Navbar>
-    <nuxt />
-  </div>
+    <div>
+        <nuxt />
+    </div>
 </template>
 
 <script>
-import Navbar from '@/components/navbar.vue'
-
 export default {
-  components: {
-    Navbar
-  },
-  mounted() {
-    this.$store.dispatch('auth/load')
-  }
+
 }
 </script>
 

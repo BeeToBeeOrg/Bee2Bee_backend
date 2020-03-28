@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h1>Wir wollen dich besser kennen lernen</h1>
-    <form @submit.prevent="add_user">
+    <form method="POST" @submit.prevent="add_user">
       <div class="form-group">
         <label for="firstName">First Name</label>
         <input
@@ -99,7 +99,9 @@
         </div>
       
       <div class="form-group">
-        <button class="btn btn-secondary" @click.prevent="$router.push('/')">Zurück</button>
+        <button 
+          class="btn btn-secondary" 
+          @click.prevent="$router.push('/')">Zurück</button>
         <button class="btn btn-primary">Weiter</button>
       </div>
     </form>
@@ -124,6 +126,7 @@ export default {
       submitted: false
     };
   },
+ 
   validations: {
     user: {
       firstName: { required },
@@ -135,19 +138,25 @@ export default {
     }
   },
   methods: {
-      async add_user() {
-        this.submitted = true;
+    async add_user() {
+      this.submitted = true;
 
-        // stop here if form is invalid
-        this.$v.$touch();
-        if (this.$v.$invalid) {
-            return;
-        }
-        this.$store.dispatch('add_user', this.user)
-        this.$router.push('/register/company')
+      // stop here if form is invalid
+      this.$v.$touch();
+      if (this.$v.$invalid) {
+          return;
       }
+      // this.$store.dispatch('add_user', this.user)
+      this.$store.commit("register_user_state",this.user);
+      console.log("saving user to store");
+      console.log(this.user.email);
+      // this.$store.dispatch('auth/register', {email: this.user.email, password: this.user.pwd}) TODO: do this at the End of validation
+      
+      this.$router.push('/register/company')
+    }
   },
    created() {
+
     this.$store.commit("update_position", {
       positions: {
         profile: true,

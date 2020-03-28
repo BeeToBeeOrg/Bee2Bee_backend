@@ -19,26 +19,32 @@ export default {
       console.log("I am pressed"); 
       console.log(this.active);
       if(!this.active){
+        console.log("type: ", this.type);
         this.active = true;
-        this.$store.commit('add_tag',this.skill)
+        if(this.type === "skill"){
+          this.$store.commit('add_tag',this.skill);
+
+        }else{
+          this.$store.commit('add_resource', this.skill);
+        }
       }else{
         this.active = false
-        this.$store.commit('delete_tag', this.skill) 
+        if(this.type === "skill"){
+          this.$store.commit('delete_tag', this.skill);
+
+        }else{
+          this.$store.commit('delete_resource',this.skill);
+        }
       }
     },
-    computed:{
+    // computed:{
       
-    },
-    add_tag:function(){
-      console.log("button pressed");
-      
-    },
-    delete_tag:function(){
-      this.$store.commit('delete_tag')
-    }
+    // },
+   
   },
   props: {
-    skill:String
+    skill:String,
+    type:String
   }
 };
 </script>
@@ -57,6 +63,10 @@ export default {
     font-size: 20px;
     line-height: 70px;
     color: deepskyblue;
+    -webkit-user-select: none;        
+  -moz-user-select: none; 
+  -ms-user-select: none; 
+  user-select: none; 
   }
 }
 

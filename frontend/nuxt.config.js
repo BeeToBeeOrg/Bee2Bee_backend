@@ -29,15 +29,16 @@ export default {
   */
   plugins: [
     '@/plugins/vuelidate.js',
-    // {
-    //   src: '@/plugins/amplify.js',
-    //   ssr: false
-    // }
+    {
+      src: '@/plugins/amplify.js',
+      mode: 'client'
+    }
   ],
   /*
   ** Nuxt.js dev-modules
   */
   buildModules: [
+    // '@nuxtjs/gtm',
   ],
   /*
   ** Nuxt.js modules
@@ -48,7 +49,8 @@ export default {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     // Doc: https://auth.nuxtjs.org
-    '@nuxtjs/auth'
+    // '@nuxtjs/auth',
+    'cookie-universal-nuxt'
   ],
   /*
   ** Axios module configuration
@@ -57,12 +59,29 @@ export default {
   axios: {
   },
   /*
-  ** auth module configuration
-  ** See https://auth.nuxtjs.org
+  ** Google tag manager configuration
   */
-  auth: {
-    // Options
-  },
+  //gtm: {
+  //   dev: true,
+
+  //    id: null,
+  //    layer: 'dataLayer',
+  //    variables: {},
+
+  //    pageTracking: false,
+  //    pageViewEventName: 'nuxtRoute',
+
+  //    autoInit: true,
+  //    respectDoNotTrack: true,
+
+  //    scriptId: 'gtm-script',
+  //    scriptDefer: false,
+  //    scriptURL: 'https://www.googletagmanager.com/gtm.js',
+
+  //    noscript: true,
+  //    noscriptId: 'gtm-noscript',
+  //    noscriptURL: 'https://www.googletagmanager.com/ns.html'
+  // },
   /*
   ** Build configuration
   */

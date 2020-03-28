@@ -3,11 +3,13 @@
     <Sidebar class="sidebar" />
       <h1>Mein Team</h1>
       <p>Diese Skills hat mein Team <span>(min. eine Person)</span></p>
+      <span id="invalid_tags" v-if="valid_skills">Sie haben noch keine Skills ausgewählt.</span>
       <div class="tag-wrapper">
         <tag 
           v-for="skill in skills" 
           :key="skill.skill" 
-          :skill="skill.skill" 
+          :skill="skill.skill"
+          :type="type.skill"
         />
       </div>
       <p>Ausserdem kann ich bereitstellen</p>
@@ -16,7 +18,14 @@
           v-for="resource in resources" 
           :key="resource.resource" 
           :skill="resource.resource" 
+          :type="type.resource"
         />
+      </div>
+      <div class="button_wrapper">
+       <button 
+          class="btn btn-secondary" 
+          @click.prevent="$router.push('/register/company')">Zurück</button>
+        <button class="btn btn-primary" @click.prevent="check_tags">registrieren</button>
       </div>
   </div>
 </template>
@@ -24,8 +33,18 @@
 <script>
 import Sidebar from '@/components/sidebar_login.vue'
 import tag from '@/components/tag/tag_skill.vue'
-
+// TODO
 export default {
+  head () {
+      return {
+      title: 'Register - Team',
+      meta: [
+          // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+          { hid: 'description', name: 'description', content: '' }
+      ]
+    }
+  },
+  layout: 'register',
   components: {
     Sidebar,
     tag
@@ -33,8 +52,13 @@ export default {
   data(){
     return {
       isActive: false,
+      valid_skills:false,
       skills:[],
-      resources: []
+      resources: [],
+      type:{
+        skill:"skill",
+        resource:"resource"
+      }
     }
   },
   methods:{
@@ -56,6 +80,31 @@ export default {
      },
      myFilter: function() {
       this.isActive = !this.isActive;
+    },
+    check_tags:function(){
+      // prove if at least one tag is checked
+      const tags = this.$store.getters['get_tags'];
+      console.log(tags);
+      for(var tag in tags){
+        if(tag != null){
+          this.valid_skills = false;  
+          if(this.$store.state.register_state.user.email == undefined){
+            // user is empty redirect to /register/user
+            this.$router.push("/register/user");
+          }else if(this.$store.state.register_state.company.company_name == undefined){
+            // company is empty redircet to /register/company
+            this.$router.push("/register/company");
+          }else{
+            // everything passt our validation --> sync all data with backend and cognito
+            console.log("everything passt our validation");
+            this.$store.dispatch('auth/register', {email:this.$store.state.register_state.user.email, password: this.$store.state.register_state.user.pwd})
+            this.$router.push("/register/validate");
+          }
+    
+        }
+      }
+      console.log(this.valid_skills);
+      this.valid_skills = true;
     }
   },
   created() {
@@ -95,7 +144,42 @@ export default {
       font-weight: normal;
     }
   }
+  #invalid_tags{
+    color: #00000070;
+    font-weight: bold;
+    position: relative;
+    left: 500px;
+    top: 110px;
+  }
+  .button_wrapper{
+    position: relative;
+    top:110px;
+    left:500px;
+   .btn {
+        width: 130px;
+        height: 40px;
+        border-radius: 20px;
+        outline: none;
+        border: none;
+        font-size: 16px;
+        margin: 30px 30px 0 30px;
+      }
+         .btn-secondary {
+        color: grey;
+        position: relative;
+        bottom: 30px;
+        left: 0;
+        width: 80px;
+      }
 
+      .btn-primary {
+        background: deepskyblue;
+        color: #fff;
+        position: relative;
+        bottom: 30px;
+        right: -200px;
+      }
+  }
   .tag-wrapper {
     position: relative;
     top: 110px;
