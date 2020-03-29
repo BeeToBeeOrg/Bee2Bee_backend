@@ -1,9 +1,9 @@
 <template>
   <div class="b2b-container">
     <nav>
-      <!-- <span>
+      <span>
         Logo
-      </span> -->
+      </span>
       <button v-if="!isAuthenticated" @click="$router.push('/login')">
         Login
       </button>
@@ -42,7 +42,7 @@ export default {
       return this.$store.state.auth.isAuthenticated;
    }
  },
-  
+
 }
 </script>
 

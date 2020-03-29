@@ -12,8 +12,12 @@ export default {
   components: {
     Navbar
   },
-  mounted() {
-    this.$store.dispatch('auth/load')
+  asyncData() {
+    if(process.server) {
+
+    } else {
+      this.$store.dispatch('auth/load')
+    }
   }
 }
 </script>

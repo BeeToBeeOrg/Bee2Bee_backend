@@ -24,14 +24,14 @@ export default {
         }
     },
     asyncData({ redirect, req, store, app }) {
-        if(process.server) {
-            console.log('blocked access')
-            console.log(app.store.auth)
-            Auth.currentAuthenticatedUser().then((user)=>{
-                console.log('user = ' + JSON.stringify(user.pool))
-            });
-        }
-    
+        // if(process.server) {
+        //     console.log('blocked access')
+        //     console.log(app.store.auth)
+        //     Auth.currentAuthenticatedUser().then((user)=>{
+        //         console.log('user = ' + JSON.stringify(user.pool))
+        //     });
+
+
     // if(process.server) {
     //   console.log('server')
     // //   const accessToken = app.$cookies.get('access_token')
@@ -39,7 +39,7 @@ export default {
     // //     redirect('/login')
     // //   }
     // } else {
-      
+
     //   if(!$auth.isAuthenticated) {
     //     redirect('/register/login')
     //   }
@@ -54,7 +54,8 @@ export default {
     },
     created() {
         this.getUser()
-    }
+    },
+    middelware:'authenticated'
 }
 </script>
 

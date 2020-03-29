@@ -5,25 +5,25 @@
       <p>Diese Skills hat mein Team <span>(min. eine Person)</span></p>
       <span id="invalid_tags" v-if="valid_skills">Sie haben noch keine Skills ausgewählt.</span>
       <div class="tag-wrapper">
-        <tag 
-          v-for="skill in skills" 
-          :key="skill.skill" 
+        <tag
+          v-for="skill in skills"
+          :key="skill.skill"
           :skill="skill.skill"
           :type="type.skill"
         />
       </div>
       <p>Ausserdem kann ich bereitstellen</p>
       <div class="tag-wrapper">
-        <tag 
-          v-for="resource in resources" 
-          :key="resource.resource" 
-          :skill="resource.resource" 
+        <tag
+          v-for="resource in resources"
+          :key="resource.resource"
+          :skill="resource.resource"
           :type="type.resource"
         />
       </div>
       <div class="button_wrapper">
-       <button 
-          class="btn btn-secondary" 
+       <button
+          class="btn btn-secondary"
           @click.prevent="$router.push('/register/company')">Zurück</button>
         <button class="btn btn-primary" @click.prevent="check_tags">registrieren</button>
       </div>
@@ -33,7 +33,7 @@
 <script>
 import Sidebar from '@/components/sidebar_login.vue'
 import tag from '@/components/tag/tag_skill.vue'
-// TODO
+
 export default {
   head () {
       return {
@@ -87,7 +87,7 @@ export default {
       console.log(tags);
       for(var tag in tags){
         if(tag != null){
-          this.valid_skills = false;  
+          this.valid_skills = false;
           if(this.$store.state.register_state.user.email == undefined){
             // user is empty redirect to /register/user
             this.$router.push("/register/user");
@@ -100,7 +100,7 @@ export default {
             this.$store.dispatch('auth/register', {email:this.$store.state.register_state.user.email, password: this.$store.state.register_state.user.pwd})
             this.$router.push("/register/validate");
           }
-    
+
         }
       }
       console.log(this.valid_skills);
@@ -201,14 +201,14 @@ export default {
     width: 100vw;
     left: 0!important;
     text-align: center;
-    padding: 0 10px 0 10px; 
+    padding: 0 10px 0 10px;
   }
 
   p {
     width: 100vw;
     left: 0!important;
     text-align: center;
-    padding: 0 10px 0 10px; 
+    padding: 0 10px 0 10px;
   }
 
   .tag-wrapper {
