@@ -33,6 +33,7 @@ export default {
       ]
     }
   },
+ 
   methods:{
     user_register: function(){
       this.$router.push('/register/user')
@@ -40,7 +41,23 @@ export default {
     company_register:function(){
       this.$router.push('/register/company')
     }
+  },
+  computed:{
+    onload:function(){
+      console.log("loggin in")
+      this.$store.dispatch('auth/load')
+    }
   }
+  // asyncData({ store }) {
+  //   console.log("Entering async Data")
+  //   if(process.server) {
+  //     console.log('on server')
+  //   } else {
+  //     console.log('on client')
+  //     store.dispatch('auth/load')
+  //     console.log(store.dispatch('auth/load'))
+  //   }
+  //}
 }
 </script>
 

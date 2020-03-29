@@ -150,11 +150,11 @@ export default {
       this.$store.commit("register_user_state",this.user);
       console.log("saving user to store");
       console.log(this.user.email);
-      // this.$store.dispatch('auth/register', {email: this.user.email, password: this.user.pwd}) TODO: do this at the End of validation
       
       this.$router.push('/register/company')
     }
   },
+    middelware:'authenticated',
    created() {
 
     this.$store.commit("update_position", {

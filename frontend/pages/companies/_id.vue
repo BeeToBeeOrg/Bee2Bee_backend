@@ -2,7 +2,7 @@
     <div class="container">
         <div class="card_company">
             <img :src="img" alt="">
-            <h2>{{ profile_name }}</h2>
+            <h2>{{ $route.params.id }}</h2>
             <p class="highlighed">Reformhaus - Kleinhandel</p>
 
             <p>
@@ -86,48 +86,67 @@ export default {
     components: {
         CompanyCard
     },
-    data() {
+    async asyncData({ params }) {
+        const { data } = await axios.get(`http:localhost:5000/companies/${params.id}`)
         return {
-            name: 'Reformhaus Müller',
-            profile_name: 'Erik Müller',
-            workers: 5,
-            description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt in expedita reprehenderit soluta officiis reiciendis vel sequi facilis quia quae voluptates corporis nam aliquid facere unde, veniam minus! Repudiandae, impedit!',
-            employment: 'Teilzeit (20h / Woche)',
-            salery: '10 - 12 €',
-            physical_work: 'Ja (Lagerarbeit)',
-            driving_license: 'Nein (optional)',
-            car_bike: 'Nein (optional)',
-            street: 'Neue Straße 1',
-            plz: '60123 Köln',
-            web: 'www.reformhaus.de',
-            email: 'info@reformhaus.de',
-            tel: '+49 172 12345678',
-            matches: [
-                {
-                    name: 'Aldi Süd',
-                    workers: '5',
-                    img: '/images/profile.jpg',
-                    distance: '5',
-                    requirements: [
-                        'mit Kundenkontakt',
-                        'körperliche Arbeit',
-                    ],
-                    matching: '100',
-                    link: '/comanies/1'
-                },
-                {
-                    name: 'Dick & Doof Pizza',
-                    workers: '2',
-                    img: '/images/profile.jpg',
-                    distance: '7',
-                    requirements: [
-                        'mit Kundenkontakt',
-                    ],
-                    matching: '60',
-                    link: '/comanies/2'
-                },
-            ]
+            name: data.name,
+            profile_name: data.profile_name,
+            workers: data.worker,
+            description: data.description,
+            salery: data.salery,
+            physical_work: data.physical_work,
+            driving_license: data.driving_license,
+            car_bike: data.car_bike,
+            street: data.street,
+            plz: data.plz,
+            web: data.web,
+            email: data.email,
+            tel: data.tel,
+            matches: data.matches
         }
+    },
+    data() {
+        // return {
+        //     name: 'Reformhaus Müller',
+        //     profile_name: 'Erik Müller',
+        //     workers: 5,
+        //     description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt in expedita reprehenderit soluta officiis reiciendis vel sequi facilis quia quae voluptates corporis nam aliquid facere unde, veniam minus! Repudiandae, impedit!',
+        //     employment: 'Teilzeit (20h / Woche)',
+        //     salery: '10 - 12 €',
+        //     physical_work: 'Ja (Lagerarbeit)',
+        //     driving_license: 'Nein (optional)',
+        //     car_bike: 'Nein (optional)',
+        //     street: 'Neue Straße 1',
+        //     plz: '60123 Köln',
+        //     web: 'www.reformhaus.de',
+        //     email: 'info@reformhaus.de',
+        //     tel: '+49 172 12345678',
+        //     matches: [
+        //         {
+        //             name: 'Aldi Süd',
+        //             workers: '5',
+        //             img: '/images/profile.jpg',
+        //             distance: '5',
+        //             requirements: [
+        //                 'mit Kundenkontakt',
+        //                 'körperliche Arbeit',
+        //             ],
+        //             matching: '100',
+        //             link: '/comanies/1'
+        //         },
+        //         {
+        //             name: 'Dick & Doof Pizza',
+        //             workers: '2',
+        //             img: '/images/profile.jpg',
+        //             distance: '7',
+        //             requirements: [
+        //                 'mit Kundenkontakt',
+        //             ],
+        //             matching: '60',
+        //             link: '/comanies/2'
+        //         },
+        //     ]
+        // }
     }
 }
 </script>

@@ -22,7 +22,6 @@ export const actions = {
     try {
       const user = await Auth.currentAuthenticatedUser()
       commit('set', user)
-      // this.$router.push('/dashboard')
       return user
     } catch (e) {
       commit('set', null)
@@ -31,7 +30,7 @@ export const actions = {
   async register(_, {email, password}) {
     console.log("email inside register", email);
     const user = await Auth.signUp({
-      username:email,
+      username: email,
       password,
       attributes: { email },
     })

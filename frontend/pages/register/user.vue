@@ -21,12 +21,14 @@ export default {
       ]
     }
   },
+ 
   layout: 'register',
   components: {
     sidebarLogin,
     profile,
     // Checkmark
-  }
+  },
+ 
 }
 </script>
 

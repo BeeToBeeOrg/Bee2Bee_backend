@@ -23,6 +23,7 @@ export default {
             name: ''
         }
     },
+    middleware: 'authenticated',
     asyncData({ redirect, req, store, app }) {
         // if(process.server) {
         //     console.log('blocked access')

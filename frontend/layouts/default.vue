@@ -12,13 +12,22 @@ export default {
   components: {
     Navbar
   },
-  asyncData() {
-    if(process.server) {
-
-    } else {
+  computed:{
+    onload:function(){
+      console.log("loggin in")
       this.$store.dispatch('auth/load')
     }
-  }
+  },
+  // asyncData() {
+  //   console("Entering async Data")
+  //   if(process.server) {
+  //     console.log('on server')
+  //   } else {
+  //     console.log('on client')
+     
+  //     console.log(this.$store.dispatch('auth/load'))
+  //   }
+  // }
 }
 </script>
 
