@@ -1,49 +1,42 @@
 <template>
   <div class="b2b-container">
     <nav>
-      <span>
-        Logo
-      </span>
-      <button v-if="!isAuthenticated" @click="$router.push('/login')">
-        Login
-      </button>
-      <button v-else @click="logout">
-        Logout
-      </button>
+      <span>Logo</span>
+      <button v-if="!isAuthenticated" @click="$router.push('/login')">Login</button>
+      <button v-else @click="logout">Logout</button>
     </nav>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Navbar',
-  props:{
-    auth:Boolean
+  name: "Navbar",
+  props: {
+    auth: Boolean
   },
-  data(){
-    return{
-      "login":false,
-      lol:false
+  data() {
+    return {
+      login: false,
+      lol: false
       // isAuthenticated: false
-    }
+    };
   },
-  methods:{
-    print:function(){
+  methods: {
+    print: function() {
       console.log(this.isAuthenticated);
     },
-    logout:function(){
-      this.$store.dispatch("auth/logout")
-      this.$router.push("/")
+    logout: function() {
+      this.$store.dispatch("auth/logout");
+      this.$router.push("/");
     }
   },
- computed:{
-   isAuthenticated() {
-     console.log(this.$store.state.auth.isAuthenticated);
+  computed: {
+    isAuthenticated() {
+      // console.log(this.$store.state.auth.isAuthenticated);
       return this.$store.state.auth.isAuthenticated;
-   }
- },
-
-}
+    }
+  }
+};
 </script>
 
 <style scoped lang="scss">

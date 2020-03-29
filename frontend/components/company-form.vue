@@ -60,10 +60,10 @@
           <span v-if="!$v.user.employees.minValue">Ein Mitarbeiter wird mindesten benötigt</span>
         </div>
       </div>
-    <div class="form-group">
+      <div class="form-group">
         <button class="btn btn-secondary" @click.prevent="$router.push('/register/user')">Zurück</button>
         <button class="btn btn-primary">Weiter</button>
-    </div>
+      </div>
     </form>
   </div>
 </template>
@@ -89,7 +89,7 @@ export default {
       company_name: { required },
       company_addr: { required },
       company_postCode: { required, numeric },
-      employees: { required, numeric,minValue:1}
+      employees: { required, numeric, minValue: 1 }
     }
   },
   methods: {
@@ -97,15 +97,15 @@ export default {
       this.submitted = true;
 
       // stop here if form is invalid
-      if(parseInt(this.user.employees) < 1){
-          return;
+      if (parseInt(this.user.employees) < 1) {
+        return;
       }
       this.$v.$touch();
       if (this.$v.$invalid) {
         return;
       }
-      this.$store.commit("register_company_state",this.user)
-      this.$router.push("/register/team")
+      this.$store.commit("register_company_state", this.user);
+      this.$router.push("/register/team");
       // this.$store.dispatch("add_company", this.user); // TODO: save it after validate.vue
     }
   },
@@ -189,36 +189,36 @@ export default {
 }
 
 @media only screen and (max-width: 1115px) {
-    h1 {
-        width: 100vw;
-        left: 0!important;
-        text-align: center;
-        padding: 0 10px 0 10px; 
+  h1 {
+    width: 100vw;
+    left: 0 !important;
+    text-align: center;
+    padding: 0 10px 0 10px;
+  }
+
+  form {
+    width: 100vw;
+    left: 0 !important;
+    text-align: center;
+
+    input {
+      width: 80vw !important;
+      left: 10vw;
     }
 
-    form {
-        width: 100vw;
-        left: 0!important;
-        text-align: center;
-
-        input {
-            width: 80vw!important;
-            left: 10vw;
-        }
-
-        .btn-secondary {
-            position: static !important;
-        }
-
-        .btn-primary {
-            position: static !important;
-        }
+    .btn-secondary {
+      position: static !important;
     }
+
+    .btn-primary {
+      position: static !important;
+    }
+  }
 }
 
 @media only screen and (max-width: 350px) {
-    h1 {
-        font-size: 20px;
-    }
+  h1 {
+    font-size: 20px;
+  }
 }
 </style>

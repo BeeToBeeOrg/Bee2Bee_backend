@@ -5,46 +5,43 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations } from "vuex";
 
 export default {
   name: "tag",
-  data(){
-    return{
-      active:false
-    }
+  data() {
+    return {
+      active: false
+    };
   },
   methods: {
-    set_active:function(){
-      console.log("I am pressed"); 
+    set_active: function() {
+      console.log("I am pressed");
       console.log(this.active);
-      if(!this.active){
+      if (!this.active) {
         console.log("type: ", this.type);
         this.active = true;
-        if(this.type === "skill"){
-          this.$store.commit('add_tag',this.skill);
-
-        }else{
-          this.$store.commit('add_resource', this.skill);
+        if (this.type === "skill") {
+          this.$store.commit("add_tag", this.skill);
+        } else {
+          this.$store.commit("add_resource", this.skill);
         }
-      }else{
-        this.active = false
-        if(this.type === "skill"){
-          this.$store.commit('delete_tag', this.skill);
-
-        }else{
-          this.$store.commit('delete_resource',this.skill);
+      } else {
+        this.active = false;
+        if (this.type === "skill") {
+          this.$store.commit("delete_tag", this.skill);
+        } else {
+          this.$store.commit("delete_resource", this.skill);
         }
       }
-    },
+    }
     // computed:{
-      
+
     // },
-   
   },
   props: {
-    skill:String,
-    type:String
+    skill: String,
+    type: String
   }
 };
 </script>
@@ -63,16 +60,16 @@ export default {
     font-size: 20px;
     line-height: 70px;
     color: deepskyblue;
-    -webkit-user-select: none;        
-  -moz-user-select: none; 
-  -ms-user-select: none; 
-  user-select: none; 
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 }
 
 .selected {
   background: deepskyblue;
-  
+
   p {
     color: #fff;
   }

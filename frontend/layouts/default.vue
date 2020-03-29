@@ -2,15 +2,18 @@
   <div>
     <Navbar></Navbar>
     <nuxt />
+    <Cookie></Cookie>
   </div>
 </template>
 
 <script>
 import Navbar from '@/components/navbar.vue'
+import Cookie from '@/components/cookies.vue'
 
 export default {
   components: {
-    Navbar
+    Navbar,
+    Cookie
   },
   computed:{
     onload:function(){
@@ -24,7 +27,7 @@ export default {
   //     console.log('on server')
   //   } else {
   //     console.log('on client')
-     
+
   //     console.log(this.$store.dispatch('auth/load'))
   //   }
   // }

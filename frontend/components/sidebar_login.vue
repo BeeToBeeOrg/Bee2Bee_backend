@@ -4,7 +4,7 @@
     <h3>In nur drei Schritten geeignete Personalpartner finden</h3>
 
     <div class="b2b-sidebar-element-wrapper">
-      <div class="b2b-sidebar-element" v-bind:class="{active:this.$store.state.positions.profile}"> 
+      <div class="b2b-sidebar-element" v-bind:class="{active:this.$store.state.positions.profile}">
         <div class="b2b-circle">
           <span>1</span>
         </div>
@@ -23,22 +23,22 @@
           <span>3</span>
         </div>
         <p>Mein Team</p>
-      </div> 
-   </div> 
+      </div>
+    </div>
   </aside>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
 
 export default {
   name: "sidebarLogin",
   computed: {
-    ...mapGetters(['get_sidebar_position'])
+    ...mapGetters(["get_sidebar_position"])
   },
   watch: {
-    positions: function(val){
-      console.log("val: ",val);
+    positions: function(val) {
+      console.log("val: ", val);
     }
   }
 };
@@ -104,18 +104,18 @@ aside {
   }
 
   .active {
-      .b2b-circle {
-        background: #fff;
+    .b2b-circle {
+      background: #fff;
 
-        span {
-          color: deepskyblue;
-          font-weight: bold;
-        }
-      }
-
-      p {
+      span {
+        color: deepskyblue;
         font-weight: bold;
       }
     }
+
+    p {
+      font-weight: bold;
+    }
+  }
 }
 </style>

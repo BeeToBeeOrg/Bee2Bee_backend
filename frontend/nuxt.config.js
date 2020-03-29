@@ -23,6 +23,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '@/assets/global.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -38,7 +39,7 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    // '@nuxtjs/gtm',
+    '@nuxtjs/gtm',
   ],
   /*
   ** Nuxt.js modules
@@ -48,8 +49,7 @@ export default {
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    // Doc: https://auth.nuxtjs.org
-    // '@nuxtjs/auth',
+    // Doc: https://github.com/microcipcip/cookie-universal/tree/master/packages/cookie-universal-nuxt
     'cookie-universal-nuxt'
   ],
   /*
@@ -61,27 +61,27 @@ export default {
   /*
   ** Google tag manager configuration
   */
-  //gtm: {
-  //   dev: true,
+  gtm: {
+    dev: true,
 
-  //    id: null,
-  //    layer: 'dataLayer',
-  //    variables: {},
+    id: null,
+    layer: 'dataLayer',
+    variables: {},
 
-  //    pageTracking: false,
-  //    pageViewEventName: 'nuxtRoute',
+    pageTracking: false,
+    pageViewEventName: 'nuxtRoute',
 
-  //    autoInit: true,
-  //    respectDoNotTrack: true,
+    autoInit: true,
+    respectDoNotTrack: true,
 
-  //    scriptId: 'gtm-script',
-  //    scriptDefer: false,
-  //    scriptURL: 'https://www.googletagmanager.com/gtm.js',
+    scriptId: 'gtm-script',
+    scriptDefer: false,
+    scriptURL: 'https://www.googletagmanager.com/gtm.js',
 
-  //    noscript: true,
-  //    noscriptId: 'gtm-noscript',
-  //    noscriptURL: 'https://www.googletagmanager.com/ns.html'
-  // },
+    noscript: true,
+    noscriptId: 'gtm-noscript',
+    noscriptURL: 'https://www.googletagmanager.com/ns.html'
+  },
   /*
   ** Build configuration
   */
@@ -90,6 +90,9 @@ export default {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
+      if (ctx.isDev) {
+        config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
+      }
     }
   }
 }

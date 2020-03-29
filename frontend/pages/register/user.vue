@@ -1,35 +1,34 @@
 <template>
   <div class="container">
     <sidebarLogin class="sidebar" />
-    <profile/>
+    <profile />
   </div>
 </template>
 
 <script>
 import { required, email, minLength, sameAs } from "vuelidate/lib/validators";
 import sidebarLogin from "@/components/sidebar_login.vue";
-import profile from "@/components/user-form.vue"
+import profile from "@/components/user-form.vue";
 // import Checkmark from '@/components/checkmark.vue'
 
 export default {
-  head () {
+  head() {
     return {
-      title: 'Register - User',
+      title: "Register - User",
       meta: [
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-        { hid: 'description', name: 'description', content: '' }
+        { hid: "description", name: "description", content: "" }
       ]
-    }
+    };
   },
- 
-  layout: 'register',
+
+  layout: "register",
   components: {
     sidebarLogin,
-    profile,
+    profile
     // Checkmark
-  },
- 
-}
+  }
+};
 </script>
 
 <style scoped lang="scss">

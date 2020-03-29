@@ -77,7 +77,7 @@
           <span v-else-if="!$v.user.confirmpwd.sameAsPassword">Passwords must match</span>
         </div>
       </div>
-        <div class="form-group">
+      <div class="form-group">
         <label for="confirmPassword">AGB</label>
         <!-- <Checkmark/> -->
         <input
@@ -89,19 +89,22 @@
           class="form-control"
           :class="{ 'is-invalid': submitted && $v.user.agb.$error }"
         />
-        </div>
-        <div v-if="!$v.user.agb.$invalid" class="invalid-feedback">
-          <span>Ich akzeptiere die <nuxt-link to="/impressum">AGB</nuxt-link></span>
-        </div>
-        <div v-if="submitted && $v.user.agb.$error" class="invalid-feedback">
-          <span v-if="!$v.user.agb.required">Bitte die <nuxt-link to="/info/impressum">AGB</nuxt-link> akzeptieren</span>
-       
-        </div>
-      
+      </div>
+      <div v-if="!$v.user.agb.$invalid" class="invalid-feedback">
+        <span>
+          Ich akzeptiere die
+          <nuxt-link to="/impressum">AGB</nuxt-link>
+        </span>
+      </div>
+      <div v-if="submitted && $v.user.agb.$error" class="invalid-feedback">
+        <span v-if="!$v.user.agb.required">
+          Bitte die
+          <nuxt-link to="/info/impressum">AGB</nuxt-link>akzeptieren
+        </span>
+      </div>
+
       <div class="form-group">
-        <button 
-          class="btn btn-secondary" 
-          @click.prevent="$router.push('/')">Zurück</button>
+        <button class="btn btn-secondary" @click.prevent="$router.push('/')">Zurück</button>
         <button class="btn btn-primary">Weiter</button>
       </div>
     </form>
@@ -112,7 +115,7 @@
 import { required, email, minLength, sameAs } from "vuelidate/lib/validators";
 
 export default {
-  name:"profile",
+  name: "profile",
   data() {
     return {
       user: {
@@ -126,7 +129,6 @@ export default {
       submitted: false
     };
   },
- 
   validations: {
     user: {
       firstName: { required },
@@ -134,7 +136,7 @@ export default {
       email: { required, email },
       pwd: { required, minLength: minLength(6) },
       confirmpwd: { required, sameAsPassword: sameAs("pwd") },
-      agb: { sameAs: sameAs( () => true ) }
+      agb: { sameAs: sameAs(() => true) }
     }
   },
   methods: {
@@ -144,19 +146,18 @@ export default {
       // stop here if form is invalid
       this.$v.$touch();
       if (this.$v.$invalid) {
-          return;
+        return;
       }
       // this.$store.dispatch('add_user', this.user)
-      this.$store.commit("register_user_state",this.user);
+      this.$store.commit("register_user_state", this.user);
       console.log("saving user to store");
       console.log(this.user.email);
-      
-      this.$router.push('/register/company')
+
+      this.$router.push("/register/company");
     }
   },
-    middelware:'authenticated',
-   created() {
-
+  middelware: "authenticated",
+  created() {
     this.$store.commit("update_position", {
       positions: {
         profile: true,
@@ -164,8 +165,7 @@ export default {
         team: false
       }
     });
-   }
- 
+  }
 };
 </script>
 
@@ -237,36 +237,36 @@ export default {
 }
 
 @media only screen and (max-width: 1115px) {
-    h1 {
-        width: 100vw;
-        left: 0!important;
-        text-align: center;
-        padding: 0 10px 0 10px; 
+  h1 {
+    width: 100vw;
+    left: 0 !important;
+    text-align: center;
+    padding: 0 10px 0 10px;
+  }
+
+  form {
+    width: 100vw;
+    left: 0 !important;
+    text-align: center;
+
+    input {
+      width: 80vw !important;
+      left: 10vw;
     }
 
-    form {
-        width: 100vw;
-        left: 0!important;
-        text-align: center;
-
-        input {
-            width: 80vw!important;
-            left: 10vw;
-        }
-
-        .btn-secondary {
-            position: static !important;
-        }
-
-        .btn-primary {
-            position: static !important;
-        }
+    .btn-secondary {
+      position: static !important;
     }
+
+    .btn-primary {
+      position: static !important;
+    }
+  }
 }
 
 @media only screen and (max-width: 350px) {
-    h1 {
-        font-size: 20px;
-    }
+  h1 {
+    font-size: 20px;
+  }
 }
 </style>

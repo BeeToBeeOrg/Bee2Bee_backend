@@ -6,25 +6,25 @@
 </template>
 
 <script>
-import Sidebar from '@/components/sidebar_login.vue'
-import Company from '@/components/company-form.vue'
+import Sidebar from "@/components/sidebar_login.vue";
+import Company from "@/components/company-form.vue";
 
 export default {
-  head () {
-      return {
-      title: 'Register - Company',
+  head() {
+    return {
+      title: "Register - Company",
       meta: [
-          // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-          { hid: 'description', name: 'description', content: '' }
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        { hid: "description", name: "description", content: "" }
       ]
-    }
+    };
   },
-  layout: 'register',
+  layout: "register",
   components: {
     Sidebar,
     Company
   }
-}
+};
 </script>
 
 <style>

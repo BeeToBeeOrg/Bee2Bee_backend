@@ -1,8 +1,8 @@
 
 <template>
-<div class="container">
-  <h1>Bestätige deine Email adresse</h1>
-  <form method="POST" @submit.prevent="confirm">
+  <div class="container">
+    <h1>Bestätige deine Email adresse</h1>
+    <form method="POST" @submit.prevent="confirm">
       <div class="form-group">
         <label for="email">Email</label>
         <input
@@ -33,11 +33,9 @@
           <span v-if="!$v.user.code.required">Code is required</span>
         </div>
       </div>
-      
+
       <div class="form-group">
-        <button 
-          class="btn btn-secondary" 
-          @click.prevent="$router.push('/register/user')">Zurück</button>
+        <button class="btn btn-secondary" @click.prevent="$router.push('/register/user')">Zurück</button>
         <button class="btn btn-primary">Weiter</button>
       </div>
     </form>
@@ -45,22 +43,22 @@
 </template>
 
 <script>
-import { required, email,numeric } from "vuelidate/lib/validators";
+import { required, email, numeric } from "vuelidate/lib/validators";
 export default {
-  head () {
+  head() {
     return {
-      title: 'Verify Email',
+      title: "Verify Email",
       meta: [
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-        { hid: 'description', name: 'description', content: '' }
+        { hid: "description", name: "description", content: "" }
       ]
-    }
+    };
   },
-    data() {
+  data() {
     return {
       user: {
-        email:'',
-        code:null,
+        email: "",
+        code: null
       },
       submitted: false
     };
@@ -80,14 +78,17 @@ export default {
       // stop here if form is invalid
       this.$v.$touch();
       if (this.$v.$invalid) {
-          return;
-      } 
+        return;
+      }
       console.log("valided");
-      this.$store.dispatch('auth/confirm' ,{ email: this.user.email, code: this.user.code})
-      this.$router.push('/register/welcome')
+      this.$store.dispatch("auth/confirm", {
+        email: this.user.email,
+        code: this.user.code
+      });
+      this.$router.push("/register/welcome");
     }
   },
-   created() {
+  created() {
     this.$store.commit("update_position", {
       positions: {
         profile: true,
@@ -95,10 +96,8 @@ export default {
         team: false
       }
     });
-   }
- 
+  }
 };
-
 </script>
 
 <style scoped lang="scss">
@@ -169,36 +168,36 @@ export default {
 }
 
 @media only screen and (max-width: 1115px) {
-    h1 {
-        width: 100vw;
-        left: 0!important;
-        text-align: center;
-        padding: 0 10px 0 10px; 
+  h1 {
+    width: 100vw;
+    left: 0 !important;
+    text-align: center;
+    padding: 0 10px 0 10px;
+  }
+
+  form {
+    width: 100vw;
+    left: 0 !important;
+    text-align: center;
+
+    input {
+      width: 80vw !important;
+      left: 10vw;
     }
 
-    form {
-        width: 100vw;
-        left: 0!important;
-        text-align: center;
-
-        input {
-            width: 80vw!important;
-            left: 10vw;
-        }
-
-        .btn-secondary {
-            position: static !important;
-        }
-
-        .btn-primary {
-            position: static !important;
-        }
+    .btn-secondary {
+      position: static !important;
     }
+
+    .btn-primary {
+      position: static !important;
+    }
+  }
 }
 
 @media only screen and (max-width: 350px) {
-    h1 {
-        font-size: 20px;
-    }
+  h1 {
+    font-size: 20px;
+  }
 }
 </style>
