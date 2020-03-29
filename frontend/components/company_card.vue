@@ -28,11 +28,11 @@ export default {
     name: 'CompanyCard',
     props: {
         name: String,
-        workers: String,
+        workers: Number,
         img: String,
-        distance: String,
+        distance: Number,
         requirements: Array,
-        matching: String,
+        matching: Number,
         link: String
     }
 }
